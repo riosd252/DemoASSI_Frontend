@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <form
+    class="d-flex flex-column gap-3"
+    [formGroup]="loginData"
+    (ngSubmit)="login()"
+    data-bs-theme="dark"
+  >
+    <h3 class="text-white">Login</h3>
+    <div class="form-group">
+      <div id="email-login">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          [ngClass]="{
+            'input--error':
+              loginData.controls.email.status === 'INVALID' && loginData.touched
+          }"
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <div id="password-login">
+        <label for="password">Password</label>
+        <input
+          class="form-control"
+          [ngClass]="{
+            'input--error':
+              loginData.controls.password.status === 'INVALID' &&
+              loginData.touched
+          }"
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3 w-100"
+      [disabled]="loginData.invalid"
+    >
+      Login
+    </button>
+  </form>
+</div>

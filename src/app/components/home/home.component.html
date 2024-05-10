@@ -1,0 +1,108 @@
+<div
+  class="container d-flex flex-column justify-content-between home-container"
+>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let table of tables">
+      <div id="table-container">
+        <span id="table-number-span">{{ table.tableNumber }}</span>
+        <app-table
+          class="d-flex justify-content-center mx-3 my-3"
+          [table]="table"
+        ></app-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto">
+    <ng-template #arriving let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Add arriving customers:</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-arriving #arrivingComponent></app-arriving>
+      </div>
+      <div class="modal-footer">
+        <button
+          *ngIf="
+            arrivingComponent.singleTableSolution ||
+            arrivingComponent.multiTableSolution
+          "
+          type="button"
+          class="btn btn-outline-success"
+          (click)="
+            arrivingComponent.confirmSolution(
+              arrivingComponent.arrivingOccupants.get('quantity')!.value,
+              arrivingComponent.singleTableSolution,
+              arrivingComponent.multiTableSolution
+            )
+          "
+        >
+          Confirm
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="modal.close('Close click')"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+    <button class="button btn-arriving mb-2 me-2" (click)="openModal(arriving)">
+      <span class="material-symbols-outlined"> directions_walk </span>
+      <span class="material-symbols-outlined"> door_open </span>
+    </button>
+
+    <ng-template #departing let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Remove departing customers:</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-departing #departingComponent></app-departing>
+      </div>
+      <div class="modal-footer">
+        <button
+          *ngIf="departingComponent.selectedTable"
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="
+            departingComponent.confirmDeparture(
+              departingComponent.departingOccupants.get('quantity')!.value,
+              departingComponent.selectedTable
+            )
+          "
+        >
+          Confirm
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="modal.close('Close click')"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+
+    <button
+      class="button btn-departing mb-2 me-2"
+      (click)="openModal(departing)"
+    >
+      <span class="material-symbols-outlined"> door_open </span>
+      <span class="material-symbols-outlined"> directions_walk </span>
+    </button>
+  </div>
+</div>

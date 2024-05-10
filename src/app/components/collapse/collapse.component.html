@@ -1,0 +1,46 @@
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+  <div class="card mt-2">
+    <div class="card-body" id="collapse-container">
+      <form class="form-group" [formGroup]="tableForm">
+        <div>
+          <div>
+            <label for="tableNumber">Table number:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tableNumber"
+            />
+          </div>
+          <div>
+            <label for="capacity">Capacity:</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="capacity"
+            />
+          </div>
+        </div>
+        <div class="d-flex justify-content-end pt-3">
+          <button
+            *ngIf="table"
+            class="btn btn-success me-2"
+            (click)="modifyTable(table.id)"
+          >
+            Apply changes
+          </button>
+          <button
+            *ngIf="table"
+            class="btn btn-danger"
+            (click)="deleteTable(table.id)"
+          >
+            Remove table
+            <span class="material-symbols-outlined align-middle"> delete </span>
+          </button>
+          <button class="btn btn-success" *ngIf="!table" (click)="saveTable()">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

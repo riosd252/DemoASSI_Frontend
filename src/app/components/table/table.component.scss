@@ -1,0 +1,50 @@
+.main-table-container {
+  display: flex;
+}
+
+.table-chair-container {
+  width: 50px;
+}
+
+.top-chair {
+  background-color: brown;
+  height: 15px;
+  width: 30px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-inline: auto;
+}
+
+.bottom-chair {
+  background-color: brown;
+  height: 15px;
+  width: 30px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-inline: auto;
+}
+
+.table {
+  background-color: brown;
+  height: 50px;
+  width: 50px;
+  border-radius: 2px;
+  margin-inline: auto;
+  margin-block: 2px;
+}
+
+.free {
+  background-color: rgba(68, 135, 68, 0.832);
+}
+
+.partiallyOccupied {
+  background-color: rgba(234, 152, 29, 0.908);
+}
+
+.full {
+  background-color: rgb(209, 49, 49);
+}
+
+.chair-color {
+  background-color: rgba(107, 120, 113, 0.888);
+}

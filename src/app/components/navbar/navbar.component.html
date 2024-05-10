@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-4" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"
+      >RistoMania</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse d-flex justify-content-end"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a
+          *ngIf="user"
+          class="nav-link active"
+          aria-current="page"
+          [routerLink]="['/home']"
+          routerLinkActive="active"
+          >Home</a
+        >
+        <a
+          *ngIf="user?.role === 'ADMIN'"
+          class="nav-link"
+          [routerLink]="['/manageTables']"
+          routerLinkActive="active"
+          >Manage tables</a
+        >
+        <a
+          *ngIf="user?.role === 'ADMIN'"
+          class="nav-link"
+          [routerLink]="['/staff']"
+          routerLinkActive="active"
+          >Staff</a
+        >
+        <a
+          *ngIf="user"
+          class="nav-link"
+          [routerLink]="['/profile']"
+          routerLinkActive="active"
+          >Profile</a
+        >
+        <a *ngIf="user" class="nav-link" href="#" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>

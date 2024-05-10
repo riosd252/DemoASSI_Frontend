@@ -1,0 +1,37 @@
+.home-container {
+  height: 90vh;
+  background-color: rgba(65, 72, 87, 0.398);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+#table-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#table-number-span {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.button {
+  padding-inline: 1.8rem;
+  padding-block: 0.5rem;
+  border-radius: 6px;
+  border-style: none;
+  color: white;
+}
+
+.btn-arriving {
+  background-color: rgba(46, 209, 46, 0.622);
+}
+
+.btn-departing {
+  background-color: rgba(202, 35, 35, 0.76);
+}

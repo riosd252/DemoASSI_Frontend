@@ -1,0 +1,17 @@
+<div
+  *ngFor="let generate of this.generateChairsAndTables()"
+  class="main-table-container"
+>
+  <div class="table-chair-container">
+    <div class="top-chair chair-color"></div>
+    <div
+      [ngClass]="{
+        free: table.status === 'FREE',
+        partiallyOccupied: table.status === 'PARTIALLY_OCCUPIED',
+        full: table.status === 'FULL'
+      }"
+      class="table"
+    ></div>
+    <div class="bottom-chair chair-color"></div>
+  </div>
+</div>

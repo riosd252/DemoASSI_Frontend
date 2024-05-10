@@ -1,0 +1,48 @@
+.container {
+  height: 90vh;
+}
+
+form {
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  background-color: rgba(65, 72, 87, 0.398);
+}
+
+input::placeholder {
+  color: white;
+  transition: all 0.2s ease;
+}
+
+input:nth-of-type(1):focus::placeholder {
+  transform: translateX(-1rem) translateY(-2rem);
+}
+
+input:nth-of-type(2):focus::placeholder {
+  transform: translateY(-2rem);
+}
+
+input:nth-of-type(3):focus::placeholder {
+  transform: translateY(-2rem);
+}
+
+input:nth-of-type(4):focus::placeholder {
+  transform: translateY(-2rem);
+}
+
+label {
+  opacity: 0;
+  transform: translateX(0.8rem) translateY(1.92rem);
+  transition: all 0.2s ease;
+}
+
+#email-login:focus-within label {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  color: white;
+}
+
+#password-login:focus-within label {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  color: white;
+}
